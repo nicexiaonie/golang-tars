@@ -2,13 +2,15 @@ package server
 
 import (
 	"fmt"
+	logger "golang-tars/pkg"
+	"golang-tars/pkg/consul"
+	"net/http"
 	"os"
 	"os/signal"
 	"syscall"
-	logger "golang-tars/pkg"
-	"golang-tars/pkg/consul"
 
 	"github.com/TarsCloud/TarsGo/tars"
+	"github.com/nicexiaonie/gconf"
 	"github.com/nicexiaonie/ghelper"
 )
 
@@ -25,6 +27,14 @@ func NewTarsPb() {
 	logPath := cfg.LogPath + "/" + cfg.App + "/" + cfg.Server + "/"
 	logger.LoggerInit(logPath)
 	logger.Logger.Info(fmt.Sprintf("NewTarsPb: %s", ghelper.ToString(cfg)))
+	logger.Logger.Info(cfg.BasePath + "config/")
+
+	// 初始化配置
+	// 初始化全局配置
+	gconf.Init(
+		gconf.WithConfigPaths(cfg.BasePath + "config/"),
+	)
+	logger.Logger.Info(fmt.Sprintf("全局配置: %s", ghelper.ToString(gconf.GetStringMap("app"))))
 
 	// 同步配置
 	if cfg.Node != "" && len(cfg.Node) > 0 {
@@ -37,12 +47,17 @@ func NewTarsPb() {
 		// }
 	}
 
+	// http服务  Demo.UserServer.HttpServerObj	tcp -h 172.17.239.228 -t 60000 -p 17191 -e 0	5	100000	50000	20000
+	mux := &tars.TarsHttpMux{}
+	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		w.Write([]byte("Hello tars"))
+	})
+	tars.AddHttpServant(mux, cfg.App+"."+cfg.Server+".HttpServerObj") //Register http server
+
 	// Run application
 	tars.Run()
 
 }
-
-
 
 // setupGracefulShutdown 设置优雅关闭
 func setupGracefulShutdown() {

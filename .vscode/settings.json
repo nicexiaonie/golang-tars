@@ -1,0 +1,12 @@
+{
+    "go.goroot": "/Users/nieyuanpei/Soft/Go/go1.25.1",
+    "go.gopath": "/Users/nieyuanpei/go",
+    "go.toolsGopath": "/Users/nieyuanpei/go",
+    "go.inferGopath": false,
+    "go.useLanguageServer": true,
+    "go.alternateTools": {
+        "go": "/Users/nieyuanpei/Soft/Go/go1.25.1/bin/go"
+    }
+}
+
+

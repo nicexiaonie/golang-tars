@@ -1,0 +1,9 @@
+cook_book:
+  net: tcp
+  address: 1
+  port: 3306
+  username: 1
+  password: 1
+  database : 1
+  max_ddle_conns: 100
+  max_open_conns: 200
