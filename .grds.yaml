@@ -1,0 +1,35 @@
+# GRDS 模型生成器配置文件
+# 运行 'grds-gen' 命令生成模型
+
+database:
+  host: 127.0.0.1
+  port: 3306
+  username: root
+  password: your_password
+  database: your_database
+
+generator:
+  # 输出目录
+  out_dir: ./models
+  # 输出文件名
+  out_file: models.go
+  # 包名
+  package_name: models
+  # 指定要生成的表（留空则生成所有表）
+  tables: []
+  # 表前缀（生成时会去除）
+  table_prefix: ""
+  
+  # 自定义类型映射（可选）
+  # 示例:
+  # type_mapping:
+  #   datetime: time.Time
+  #   decimal: decimal.Decimal
+  type_mapping: {}
+  
+  # 是否启用 JSON 标签（默认: true）
+  enable_json_tag: true
+  # 是否启用 GORM 标签（默认: true）
+  enable_gorm_tag: true
+  # JSON 标签命名风格: snake_case, camelCase, original（默认: snake_case）
+  json_tag_style: snake_case
