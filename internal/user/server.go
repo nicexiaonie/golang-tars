@@ -49,13 +49,20 @@ func NewTarsPb() {
 	}
 
 	// 初始化mysql
-	config := grds.NewConfig("127.0.0.1", 3306, "root", "password", "testdb")
-	err := grds.Connect(config)
-	if err != nil {
-		logger.Logger.Error(fmt.Sprintf("connect to mysql failed: %v", err))
-		return
-	}
-	logger.Logger.Info("connect to mysql success")
+	func() {
+		defer func() {
+			if r := recover(); r != nil {
+				logger.Logger.Error(fmt.Sprintf("connect to mysql failed: %v", r))
+			}
+		}()
+		config := grds.NewConfig("127.0.0.1", 3306, "root", "password", "testdb")
+		err := grds.Connect(config)
+		if err != nil {
+			logger.Logger.Error(fmt.Sprintf("connect to mysql failed: %v", err))
+			return
+		}
+		logger.Logger.Info("connect to mysql success")
+	}()
 
 	// http服务  Demo.UserServer.HttpServerObj	tcp -h 172.17.239.228 -t 60000 -p 17191 -e 0	5	100000	50000	20000
 	mux := &tars.TarsHttpMux{}

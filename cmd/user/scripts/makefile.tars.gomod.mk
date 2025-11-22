@@ -6,7 +6,7 @@ export LANG     = en_US.UTF-8
 
 GOPATH ?= $(shell go env GOPATH)
 GOROOT ?= $(shell go env GOROOT)
-GO      = CGO_ENABLED=0 GOOS=linux GOARCH=amd64 /Users/nieyuanpei/Soft/Go/go1.25.1/bin/go
+GO      = CGO_ENABLED=0 GOOS=linux GOARCH=amd64 /Users/nieyuanpei/.asdf/installs/golang/1.25.0/go/bin/go
 GO_MINOR_VERSION = $(shell $(GO) version | cut -c 14- | cut -d' ' -f1 | cut -d'.' -f2)
 GO_MINOR_VERSION16 = 16
 

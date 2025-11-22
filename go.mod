@@ -8,6 +8,7 @@ require (
 	github.com/nicexiaonie/gconf v1.0.0
 	github.com/nicexiaonie/ghelper v1.0.0
 	github.com/nicexiaonie/glog v1.1.0
+	github.com/nicexiaonie/grds v1.0.1
 	github.com/sirupsen/logrus v1.9.3
 )
 
@@ -31,7 +32,6 @@ require (
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
-	github.com/nicexiaonie/grds v1.0.1 // indirect
 	github.com/pelletier/go-toml/v2 v2.2.4 // indirect
 	github.com/sagikazarmark/locafero v0.12.0 // indirect
 	github.com/spf13/afero v1.15.0 // indirect
