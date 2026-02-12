@@ -1,0 +1,11 @@
+app:
+  version: 1.0.0
+  env: dev  # 环境标识: dev, test, product
+
+
+# 服务器性能配置
+server:
+  read_timeout: 30      # 读取超时（秒）
+  write_timeout: 30     # 写入超时（秒）
+  idle_timeout: 120     # 空闲超时（秒）
+  max_header_bytes: 1048576  # 最大 header 大小（1MB）

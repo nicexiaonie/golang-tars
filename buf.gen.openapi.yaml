@@ -1,0 +1,18 @@
+# buf.gen.openapi.yaml - 专门用于生成 OpenAPI 文档的配置
+# 使用 protoc-gen-openapi 插件（更现代化的方案）
+
+version: v2
+
+plugins:
+  # 使用 google.api.gen 的 protoc-gen-openapi 插件
+  # 这是最新的 OpenAPI v3 生成器
+  - remote: buf.build/community/google-gnostic-openapi
+    out: docs/openapi
+    opt:
+      - naming=json
+      - depth=2
+      - default_response=true
+      - enum_type=string
+
+inputs:
+  - directory: proto

@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package common.v1;
+
+option go_package = "go-base/pkg/proto/common/v1;commonv1";
+
+
+// 通用响应包装（用于统一响应格式）
+message BaseResponse {
+  int32 code = 1;
+  string message = 2;
+}
+
+// 空响应（用于删除等操作）
+message Empty {}

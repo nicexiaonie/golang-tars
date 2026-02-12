@@ -1,0 +1,39 @@
+# buf.gen.yaml - Buf 代码生成配置
+# 用于生成 Go 代码、Connect-go 代码和 OpenAPI 文档
+
+version: v2
+
+# 插件配置
+plugins:
+  # 生成 Go protobuf 代码
+  - remote: buf.build/protocolbuffers/go
+    out: pkg/proto
+    opt:
+      - paths=source_relative
+
+  # 生成 Connect-go 代码
+  - remote: buf.build/connectrpc/go
+    out: pkg/proto
+    opt:
+      - paths=source_relative
+
+  # 生成 protoc-gen-validate 验证代码
+  - local: protoc-gen-validate
+    out: pkg/proto
+    opt:
+      - lang=go
+      - paths=source_relative
+
+  # 生成 OpenAPI v3 文档
+  - remote: buf.build/grpc-ecosystem/openapiv2
+    out: docs/openapi
+    opt:
+      - json_names_for_fields=true
+      - allow_merge=true
+      - merge_file_name=api
+      - use_go_templates=true
+      - openapi_naming_strategy=simple
+
+# 输入配置
+inputs:
+  - directory: proto

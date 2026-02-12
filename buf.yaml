@@ -1,0 +1,32 @@
+# buf.yaml - Buf 配置文件
+# 用于管理 protobuf 文件的编译和验证
+
+version: v2
+
+# 模块配置
+modules:
+  - path: proto
+    name: buf.build/redcoast/go-base
+
+# 依赖配置
+deps:
+  - buf.build/googleapis/googleapis
+  - buf.build/envoyproxy/protoc-gen-validate
+
+# Lint 配置
+lint:
+  use:
+    - STANDARD
+  except:
+    - PACKAGE_VERSION_SUFFIX
+    - SERVICE_SUFFIX
+  ignore:
+    - proto/google
+
+# Breaking change 检测配置
+breaking:
+  use:
+    - FILE
+  except:
+    - EXTENSION_NO_DELETE
+    - FIELD_SAME_DEFAULT

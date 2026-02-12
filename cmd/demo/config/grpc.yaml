@@ -1,0 +1,14 @@
+
+grpc-server:
+  user-rpc:
+    # Connect 服务配置（支持 gRPC + HTTP/JSON 双协议）
+    port: 9091  # Connect 服务端口（单端口支持 gRPC/gRPC-Web/Connect HTTP）
+    endpoints:
+      - 192.168.8.245:9091
+      - 192.168.8.246:9091
+  demo-rpc:
+    # Connect 服务配置（支持 gRPC + HTTP/JSON 双协议）
+    port: 9092  # Connect 服务端口（单端口支持 gRPC/gRPC-Web/Connect HTTP）
+    endpoints:
+      - 192.168.8.246:9092
+      - 192.168.8.247:9092

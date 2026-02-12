@@ -1,0 +1,343 @@
+# Generated with protoc-gen-openapi
+# https://github.com/google/gnostic/tree/master/cmd/protoc-gen-openapi
+
+openapi: 3.0.3
+info:
+    title: DemoService API
+    description: Demo 服务
+    version: 0.0.1
+paths:
+    /api/v1/demo:
+        get:
+            tags:
+                - DemoService
+            description: 列表 Demo
+            operationId: DemoService_ListDemo
+            parameters:
+                - name: page
+                  in: query
+                  description: 页码（可选，默认 1，最小 1）
+                  schema:
+                    type: integer
+                    format: int32
+                - name: pageSize
+                  in: query
+                  description: 每页数量（可选，默认 10，范围 1-100）
+                  schema:
+                    type: integer
+                    format: int32
+                - name: status
+                  in: query
+                  description: 状态筛选（可选，只能是 1 或 2）
+                  schema:
+                    type: integer
+                    format: int32
+                - name: name
+                  in: query
+                  description: 名称搜索（可选）
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ListDemoResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+        post:
+            tags:
+                - DemoService
+            description: 创建 Demo
+            operationId: DemoService_CreateDemo
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/CreateDemoRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/CreateDemoResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /api/v1/demo/{id}:
+        get:
+            tags:
+                - DemoService
+            description: 获取 Demo
+            operationId: DemoService_GetDemo
+            parameters:
+                - name: id
+                  in: path
+                  description: Demo ID（必填，大于 0）
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetDemoResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+        put:
+            tags:
+                - DemoService
+            description: 更新 Demo
+            operationId: DemoService_UpdateDemo
+            parameters:
+                - name: id
+                  in: path
+                  description: Demo ID（必填，大于 0）
+                  required: true
+                  schema:
+                    type: string
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UpdateDemoRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UpdateDemoResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+        delete:
+            tags:
+                - DemoService
+            description: 删除 Demo
+            operationId: DemoService_DeleteDemo
+            parameters:
+                - name: id
+                  in: path
+                  description: Demo ID（必填，大于 0）
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/DeleteDemoResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+components:
+    schemas:
+        CreateDemoRequest:
+            type: object
+            properties:
+                name:
+                    type: string
+                    description: Demo 名称（必填，长度 1-100）
+                description:
+                    type: string
+                    description: Demo 描述（可选，最大长度 500）
+                status:
+                    type: integer
+                    description: Demo 状态（必填，只能是 1 或 2）
+                    format: int32
+            description: 创建 Demo 请求
+        CreateDemoResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    description: 响应状态码
+                    format: int32
+                message:
+                    type: string
+                    description: 响应消息
+                data:
+                    allOf:
+                        - $ref: '#/components/schemas/Demo'
+                    description: 创建的 Demo 对象
+            description: 创建 Demo 响应
+        DeleteDemoResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    description: 响应状态码
+                    format: int32
+                message:
+                    type: string
+                    description: 响应消息
+                data:
+                    allOf:
+                        - $ref: '#/components/schemas/Empty'
+                    description: 空数据（可选）
+            description: 删除 Demo 响应
+        Demo:
+            type: object
+            properties:
+                id:
+                    type: string
+                    description: Demo ID
+                name:
+                    type: string
+                    description: Demo 名称
+                description:
+                    type: string
+                    description: Demo 描述
+                status:
+                    type: integer
+                    description: Demo 状态：1-启用，2-禁用
+                    format: int32
+                createdAt:
+                    type: string
+                    description: 创建时间（Unix 时间戳）
+                updatedAt:
+                    type: string
+                    description: 更新时间（Unix 时间戳）
+            description: Demo 实体
+        Empty:
+            type: object
+            properties: {}
+            description: 空响应（用于删除等操作）
+        GetDemoResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    description: 响应状态码
+                    format: int32
+                message:
+                    type: string
+                    description: 响应消息
+                data:
+                    allOf:
+                        - $ref: '#/components/schemas/Demo'
+                    description: Demo 对象
+            description: 获取 Demo 响应
+        GoogleProtobufAny:
+            type: object
+            properties:
+                '@type':
+                    type: string
+                    description: The type of the serialized message.
+            additionalProperties: true
+            description: Contains an arbitrary serialized message along with a @type that describes the type of the serialized message.
+        ListDemoData:
+            type: object
+            properties:
+                items:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/Demo'
+                    description: Demo 列表
+                page:
+                    type: integer
+                    description: 当前页码
+                    format: int32
+                pageSize:
+                    type: integer
+                    description: 每页数量
+                    format: int32
+                total:
+                    type: string
+                    description: 总记录数
+                totalPages:
+                    type: integer
+                    description: 总页数
+                    format: int32
+            description: 列表数据
+        ListDemoResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    description: 响应状态码
+                    format: int32
+                message:
+                    type: string
+                    description: 响应消息
+                data:
+                    allOf:
+                        - $ref: '#/components/schemas/ListDemoData'
+                    description: 列表数据
+            description: 列表 Demo 响应
+        Status:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    description: The status code, which should be an enum value of [google.rpc.Code][google.rpc.Code].
+                    format: int32
+                message:
+                    type: string
+                    description: A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the [google.rpc.Status.details][google.rpc.Status.details] field, or localized by the client.
+                details:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/GoogleProtobufAny'
+                    description: A list of messages that carry the error details.  There is a common set of message types for APIs to use.
+            description: 'The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors).'
+        UpdateDemoRequest:
+            type: object
+            properties:
+                id:
+                    type: string
+                    description: Demo ID（必填，大于 0）
+                name:
+                    type: string
+                    description: Demo 名称（可选，如果提供则长度 1-100）
+                description:
+                    type: string
+                    description: Demo 描述（可选，最大长度 500）
+                status:
+                    type: integer
+                    description: Demo 状态（可选，只能是 1 或 2）
+                    format: int32
+            description: 更新 Demo 请求
+        UpdateDemoResponse:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    description: 响应状态码
+                    format: int32
+                message:
+                    type: string
+                    description: 响应消息
+                data:
+                    allOf:
+                        - $ref: '#/components/schemas/Demo'
+                    description: 更新后的 Demo 对象
+            description: 更新 Demo 响应
+tags:
+    - name: DemoService

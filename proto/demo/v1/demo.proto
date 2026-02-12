@@ -1,0 +1,202 @@
+syntax = "proto3";
+
+package demo.v1;
+
+import "google/api/annotations.proto";
+import "validate/validate.proto";
+import "common/v1/common.proto";
+
+option go_package = "go-base/pkg/proto/demo/v1;demov1";
+
+// Demo 服务
+service DemoService {
+  // 创建 Demo
+  rpc CreateDemo(CreateDemoRequest) returns (CreateDemoResponse) {
+    option (google.api.http) = {
+      post: "/api/v1/demo"
+      body: "*"
+    };
+  }
+
+  // 获取 Demo
+  rpc GetDemo(GetDemoRequest) returns (GetDemoResponse) {
+    option (google.api.http) = {
+      get: "/api/v1/demo/{id}"
+    };
+  }
+
+  // 更新 Demo
+  rpc UpdateDemo(UpdateDemoRequest) returns (UpdateDemoResponse) {
+    option (google.api.http) = {
+      put: "/api/v1/demo/{id}"
+      body: "*"
+    };
+  }
+
+  // 删除 Demo
+  rpc DeleteDemo(DeleteDemoRequest) returns (DeleteDemoResponse) {
+    option (google.api.http) = {
+      delete: "/api/v1/demo/{id}"
+    };
+  }
+
+  // 列表 Demo
+  rpc ListDemo(ListDemoRequest) returns (ListDemoResponse) {
+    option (google.api.http) = {
+      get: "/api/v1/demo"
+    };
+  }
+}
+
+
+// Demo 实体
+message Demo {
+  // Demo ID
+  int64 id = 1;
+  // Demo 名称
+  string name = 2;
+  // Demo 描述
+  string description = 3;
+  // Demo 状态：1-启用，2-禁用
+  int32 status = 4;
+  // 创建时间（Unix 时间戳）
+  int64 created_at = 5;
+  // 更新时间（Unix 时间戳）
+  int64 updated_at = 6;
+}
+
+// 创建 Demo 请求
+message CreateDemoRequest {
+  // Demo 名称（必填，长度 1-100）
+  string name = 1 [(validate.rules).string = {
+    min_len: 1,
+    max_len: 100
+  }];
+  // Demo 描述（可选，最大长度 500）
+  string description = 2 [(validate.rules).string = {max_len: 500}];
+  // Demo 状态（必填，只能是 1 或 2）
+  int32 status = 3 [(validate.rules).int32 = {
+    in: [1, 2]
+  }];
+}
+
+// 创建 Demo 响应
+message CreateDemoResponse {
+  // 响应状态码
+  int32 code = 1;
+  // 响应消息
+  string message = 2;
+  // 创建的 Demo 对象
+  Demo data = 3;
+}
+
+// 获取 Demo 请求
+message GetDemoRequest {
+  // Demo ID（必填，大于 0）
+  int64 id = 1 [(validate.rules).int64 = {gt: 0}];
+}
+
+// 获取 Demo 响应
+message GetDemoResponse {
+  // 响应状态码
+  int32 code = 1;
+  // 响应消息
+  string message = 2;
+  // Demo 对象
+  Demo data = 3;
+}
+
+// 更新 Demo 请求
+message UpdateDemoRequest {
+  // Demo ID（必填，大于 0）
+  int64 id = 1 [(validate.rules).int64 = {gt: 0}];
+  // Demo 名称（可选，如果提供则长度 1-100）
+  optional string name = 2 [(validate.rules).string = {
+    min_len: 1,
+    max_len: 100,
+    ignore_empty: true
+  }];
+  // Demo 描述（可选，最大长度 500）
+  optional string description = 3 [(validate.rules).string = {
+    max_len: 500,
+    ignore_empty: true
+  }];
+  // Demo 状态（可选，只能是 1 或 2）
+  optional int32 status = 4 [(validate.rules).int32 = {
+    in: [1, 2],
+    ignore_empty: true
+  }];
+}
+
+// 更新 Demo 响应
+message UpdateDemoResponse {
+  // 响应状态码
+  int32 code = 1;
+  // 响应消息
+  string message = 2;
+  // 更新后的 Demo 对象
+  Demo data = 3;
+}
+
+// 删除 Demo 请求
+message DeleteDemoRequest {
+  // Demo ID（必填，大于 0）
+  int64 id = 1 [(validate.rules).int64 = {gt: 0}];
+}
+
+// 删除 Demo 响应
+message DeleteDemoResponse {
+  // 响应状态码
+  int32 code = 1;
+  // 响应消息
+  string message = 2;
+  // 空数据（可选）
+  common.v1.Empty data = 3;
+}
+
+// 列表 Demo 请求
+message ListDemoRequest {
+  // 页码（可选，默认 1，最小 1）
+  int32 page = 1 [(validate.rules).int32 = {
+    gte: 1,
+    ignore_empty: true
+  }];
+  // 每页数量（可选，默认 10，范围 1-100）
+  int32 page_size = 2 [(validate.rules).int32 = {
+    gte: 1,
+    lte: 100,
+    ignore_empty: true
+  }];
+  // 状态筛选（可选，只能是 1 或 2）
+  optional int32 status = 3 [(validate.rules).int32 = {
+    in: [1, 2],
+    ignore_empty: true
+  }];
+  // 名称搜索（可选）
+  string name = 4;
+}
+
+// 列表数据
+message ListDemoData {
+  // Demo 列表
+  repeated Demo items = 1;
+  // 当前页码
+  int32 page = 2;
+  // 每页数量
+  int32 page_size = 3;
+  // 总记录数
+  int64 total = 4;
+  // 总页数
+  int32 total_pages = 5;
+}
+
+// 列表 Demo 响应
+message ListDemoResponse {
+  // 响应状态码
+  int32 code = 1;
+  // 响应消息
+  string message = 2;
+  // 列表数据
+  ListDemoData data = 3;
+}
+
