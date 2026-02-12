@@ -2,7 +2,7 @@ package config
 
 import (
 	"fmt"
-	logger "go-base/pkg"
+	logger "golang-tars/pkg"
 
 	"github.com/TarsCloud/TarsGo/tars"
 	"github.com/nicexiaonie/gconf"

@@ -3,11 +3,11 @@ package service
 import (
 	"context"
 	"fmt"
-	"go-base/internal/user/data/mysql/dao"
-	"go-base/internal/user/data/mysql/models"
-	"go-base/internal/user/proxy"
-	logger "go-base/pkg"
-	demov1 "go-base/pkg/proto/demo/v1"
+	"golang-tars/internal/user/data/mysql/dao"
+	"golang-tars/internal/user/data/mysql/models"
+	"golang-tars/internal/user/proxy"
+	logger "golang-tars/pkg"
+	demov1 "golang-tars/pkg/proto/demo/v1"
 )
 
 // DemoService Demo 业务逻辑接口

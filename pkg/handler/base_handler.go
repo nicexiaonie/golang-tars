@@ -3,8 +3,8 @@ package handler
 import (
 	"encoding/json"
 	"fmt"
-	logger "go-base/pkg"
-	"go-base/pkg/response"
+	logger "golang-tars/pkg"
+	"golang-tars/pkg/response"
 	"io"
 	"net/http"
 	"strconv"

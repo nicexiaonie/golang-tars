@@ -3,8 +3,8 @@ package handler
 import (
 	"context"
 	"fmt"
-	"go-base/internal/user/service"
-	demov1 "go-base/pkg/proto/demo/v1"
+	"golang-tars/internal/user/service"
+	demov1 "golang-tars/pkg/proto/demo/v1"
 
 	"connectrpc.com/connect"
 )

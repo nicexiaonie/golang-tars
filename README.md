@@ -1,4 +1,4 @@
-# go-base
+# golang-tars
 
 基于 TarsGo 的微服务基础代码库，作为新项目的起始模板。
 
@@ -29,7 +29,7 @@
 ## 项目结构
 
 ```
-go-base/
+golang-tars/
 ├── cmd/                          # 应用入口
 │   ├── user/                     #   User 服务（主服务示例）
 │   └── demo/                     #   Demo 服务配置示例

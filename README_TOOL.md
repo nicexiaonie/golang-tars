@@ -2,7 +2,7 @@
 
 # 工具与组件使用手册
 
-本文档详细介绍 go-base 项目中各工具、组件的安装配置和使用方法。
+本文档详细介绍 golang-tars 项目中各工具、组件的安装配置和使用方法。
 
 ---
 
@@ -268,7 +268,7 @@ grds-gen
 ### 数据库初始化
 
 ```go
-import "go-base/pkg/db"
+import "golang-tars/pkg/db"
 
 dbManager := db.GetManager()
 
@@ -319,7 +319,7 @@ client.Find(&users)
 ### 分页查询
 
 ```go
-import "go-base/pkg/db"
+import "golang-tars/pkg/db"
 
 client, _ := dbManager.GetClient("default")
 
@@ -451,14 +451,14 @@ JWT 通过 Tars 配置文件加载：
 ```yaml
 jwt:
   secret_key: "your-secret-key"
-  issuer: "go-base"
+  issuer: "golang-tars"
   expire_hours: 24
 ```
 
 ### 使用
 
 ```go
-import "go-base/pkg/jwt"
+import "golang-tars/pkg/jwt"
 
 // 初始化
 jwtClient := jwt.NewClient(config)
@@ -488,7 +488,7 @@ whiteList := []string{
 ### 初始化
 
 ```go
-import "go-base/pkg/redis"
+import "golang-tars/pkg/redis"
 
 err := redis.Init(&redis.Config{
     Addr:     "localhost:6379",
@@ -510,7 +510,7 @@ client := redis.GetClient()
 - 上下文感知日志
 
 ```go
-import "go-base/pkg"
+import "golang-tars/pkg"
 
 // 初始化
 pkg.LoggerInit()

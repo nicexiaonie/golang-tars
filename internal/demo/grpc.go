@@ -2,10 +2,10 @@ package server
 
 // import (
 // 	"fmt"
-// 	"go-base/internal/user/interceptor"
-// 	"go-base/internal/user/service"
-// 	logger "go-base/pkg"
-// 	demov1 "go-base/pkg/proto/demo/v1"
+// 	"golang-tars/internal/user/interceptor"
+// 	"golang-tars/internal/user/service"
+// 	logger "golang-tars/pkg"
+// 	demov1 "golang-tars/pkg/proto/demo/v1"
 // 	"net"
 // 	"time"
 

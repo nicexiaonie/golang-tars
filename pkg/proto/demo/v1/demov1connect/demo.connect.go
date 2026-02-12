@@ -8,7 +8,7 @@ import (
 	connect "connectrpc.com/connect"
 	context "context"
 	errors "errors"
-	v1 "go-base/pkg/proto/demo/v1"
+	v1 "golang-tars/pkg/proto/demo/v1"
 	http "net/http"
 	strings "strings"
 )

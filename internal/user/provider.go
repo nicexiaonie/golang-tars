@@ -1,8 +1,8 @@
 package user
 
 import (
-	"go-base/internal/user/proxy"
-	"go-base/pkg/db"
+	"golang-tars/internal/user/proxy"
+	"golang-tars/pkg/db"
 	"time"
 
 	"github.com/nicexiaonie/gconf"

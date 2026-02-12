@@ -6,7 +6,7 @@ import "google/api/annotations.proto";
 import "validate/validate.proto";
 import "common/v1/common.proto";
 
-option go_package = "go-base/pkg/proto/demo/v1;demov1";
+option go_package = "golang-tars/pkg/proto/demo/v1;demov1";
 
 // Demo 服务
 service DemoService {

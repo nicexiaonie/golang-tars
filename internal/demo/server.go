@@ -2,7 +2,7 @@ package server
 
 // import (
 // 	"fmt"
-// 	logger "go-base/pkg"
+// 	logger "golang-tars/pkg"
 // 	"net/http"
 
 // 	"github.com/TarsCloud/TarsGo/tars"

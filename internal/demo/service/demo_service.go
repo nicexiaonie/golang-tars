@@ -3,7 +3,7 @@ package service
 import (
 	"context"
 	"fmt"
-	demov1 "go-base/pkg/proto/demo/v1"
+	demov1 "golang-tars/pkg/proto/demo/v1"
 
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"

@@ -1,4 +1,4 @@
-module go-base
+module golang-tars
 
 go 1.25.0
 

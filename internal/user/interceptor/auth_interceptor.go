@@ -4,8 +4,8 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	logger "go-base/pkg"
-	"go-base/pkg/jwt"
+	logger "golang-tars/pkg"
+	"golang-tars/pkg/jwt"
 
 	"connectrpc.com/connect"
 	jwtLib "github.com/golang-jwt/jwt/v5"

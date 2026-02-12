@@ -2,7 +2,7 @@ package interceptor
 
 import (
 	"context"
-	logger "go-base/pkg"
+	logger "golang-tars/pkg"
 
 	"connectrpc.com/connect"
 	"github.com/nicexiaonie/ghelper"

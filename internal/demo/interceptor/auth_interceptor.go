@@ -3,8 +3,8 @@ package interceptor
 import (
 	"context"
 	"errors"
-	logger "go-base/pkg"
-	"go-base/pkg/jwt"
+	logger "golang-tars/pkg"
+	"golang-tars/pkg/jwt"
 
 	jwtLib "github.com/golang-jwt/jwt/v5"
 	"google.golang.org/grpc"

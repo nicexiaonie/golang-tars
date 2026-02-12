@@ -4,10 +4,10 @@
 package user
 
 import (
-	"go-base/internal/user/data/mysql/dao"
-	"go-base/internal/user/handler"
-	"go-base/internal/user/proxy"
-	"go-base/internal/user/service"
+	"golang-tars/internal/user/data/mysql/dao"
+	"golang-tars/internal/user/handler"
+	"golang-tars/internal/user/proxy"
+	"golang-tars/internal/user/service"
 
 	"github.com/google/wire"
 )

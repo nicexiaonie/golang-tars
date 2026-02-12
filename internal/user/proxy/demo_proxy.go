@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"time"
 
-	logger "go-base/pkg"
-	demov1 "go-base/pkg/proto/demo/v1"
+	logger "golang-tars/pkg"
+	demov1 "golang-tars/pkg/proto/demo/v1"
 
 	"github.com/nicexiaonie/ghelper"
 	"github.com/nicexiaonie/ghttp"

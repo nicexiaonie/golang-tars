@@ -3,8 +3,8 @@ package server
 // import (
 // 	"context"
 // 	"fmt"
-// 	logger "go-base/pkg"
-// 	demov1 "go-base/pkg/proto/demo/v1"
+// 	logger "golang-tars/pkg"
+// 	demov1 "golang-tars/pkg/proto/demo/v1"
 // 	"net/http"
 
 // 	"github.com/gin-gonic/gin"

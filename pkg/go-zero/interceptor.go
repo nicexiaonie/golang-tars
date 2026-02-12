@@ -6,7 +6,7 @@ import (
 	"math/rand/v2"
 	"time"
 
-	logger "go-base/pkg"
+	logger "golang-tars/pkg"
 
 	"github.com/sirupsen/logrus"
 	"google.golang.org/grpc"

@@ -1,6 +1,6 @@
 package main
 
-import "go-base/internal/user"
+import "golang-tars/internal/user"
 
 func main() {
 	user.NewTarsPb()

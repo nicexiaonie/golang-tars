@@ -6,7 +6,7 @@ version: v2
 # 模块配置
 modules:
   - path: proto
-    name: buf.build/redcoast/go-base
+    name: buf.build/redcoast/golang-tars
 
 # 依赖配置
 deps:

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package common.v1;
 
-option go_package = "go-base/pkg/proto/common/v1;commonv1";
+option go_package = "golang-tars/pkg/proto/common/v1;commonv1";
 
 
 // 通用响应包装（用于统一响应格式）

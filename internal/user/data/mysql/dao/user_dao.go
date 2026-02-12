@@ -4,8 +4,8 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"go-base/internal/user/data/mysql/models"
-	"go-base/pkg/db"
+	"golang-tars/internal/user/data/mysql/models"
+	"golang-tars/pkg/db"
 
 	"github.com/nicexiaonie/gconf"
 	"gorm.io/gorm"
