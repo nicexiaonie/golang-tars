@@ -6,6 +6,13 @@
     "go.useLanguageServer": true,
     "go.alternateTools": {
         "go": "/Users/nieyuanpei/Soft/Go/go1.25.1/bin/go"
+    },
+    "protoc": {
+        "options": [
+            "--proto_path=${workspaceRoot}/proto",
+            "--proto_path=/Users/nieyuanpei/go/pkg/mod/github.com/grpc-ecosystem/grpc-gateway@v1.16.0/third_party/googleapis",
+            "--proto_path=/Users/nieyuanpei/go/pkg/mod/github.com/envoyproxy/protoc-gen-validate@v1.3.0"
+        ]
     }
 }
 

@@ -890,7 +890,7 @@ const file_demo_v1_demo_proto_rawDesc = "" +
 	"UpdateDemo\x12\x1a.demo.v1.UpdateDemoRequest\x1a\x1b.demo.v1.UpdateDemoResponse\"\x1c\x82\xd3\xe4\x93\x02\x16:\x01*\x1a\x11/api/v1/demo/{id}\x12`\n" +
 	"\n" +
 	"DeleteDemo\x12\x1a.demo.v1.DeleteDemoRequest\x1a\x1b.demo.v1.DeleteDemoResponse\"\x19\x82\xd3\xe4\x93\x02\x13*\x11/api/v1/demo/{id}\x12U\n" +
-	"\bListDemo\x12\x18.demo.v1.ListDemoRequest\x1a\x19.demo.v1.ListDemoResponse\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\f/api/v1/demoB\"Z golang-tars/pkg/proto/demo/v1;demov1b\x06proto3"
+	"\bListDemo\x12\x18.demo.v1.ListDemoRequest\x1a\x19.demo.v1.ListDemoResponse\"\x14\x82\xd3\xe4\x93\x02\x0e\x12\f/api/v1/demoB&Z$golang-tars/pkg/proto/demo/v1;demov1b\x06proto3"
 
 var (
 	file_demo_v1_demo_proto_rawDescOnce sync.Once

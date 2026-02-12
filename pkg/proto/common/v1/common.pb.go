@@ -119,7 +119,7 @@ const file_common_v1_common_proto_rawDesc = "" +
 	"\fBaseResponse\x12\x12\n" +
 	"\x04code\x18\x01 \x01(\x05R\x04code\x12\x18\n" +
 	"\amessage\x18\x02 \x01(\tR\amessage\"\a\n" +
-	"\x05EmptyB&Z$golang-tars/pkg/proto/common/v1;commonv1b\x06proto3"
+	"\x05EmptyB*Z(golang-tars/pkg/proto/common/v1;commonv1b\x06proto3"
 
 var (
 	file_common_v1_common_proto_rawDescOnce sync.Once
